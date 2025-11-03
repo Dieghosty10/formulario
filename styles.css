@@ -1,0 +1,228 @@
+:root {
+    --bg-1: #0f1226;
+    --bg-2: #0b0f1d;
+    --border: #ffffff33;
+    --txt: #e7e9f1;
+    --muted: #b7bfd6;
+    --accent: #7c3aed;
+    --accent-2: #06b6d4;
+    --ok: #22c55e;
+    --danger: #ef4444;
+    --shadow: 0 20px 50px rgba(0,0,0,.35);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    color: var(--txt);
+    background: 
+        radial-gradient(1000px 500px at 10% 10%, #4527a0 0%, transparent 60%),
+        radial-gradient(800px 400px at 90% 20%, #0ea5e9 0%, transparent 60%),
+        linear-gradient(135deg, var(--bg-1), var(--bg-2));
+    display: grid;
+    place-items: center;
+    padding: 32px;
+}
+
+.container {
+    width: min(880px, 100%);
+}
+
+.card {
+    background: color-mix(in oklab, white 12%, transparent);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.header {
+    padding: 28px 28px 0 28px;
+    position: relative;
+}
+
+.title {
+    margin: 0 0 8px 0;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: .2px;
+}
+
+.subtitle {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.content {
+    padding: 24px 28px 28px;
+}
+
+.alert {
+    margin: 0 0 16px 0;
+    padding: 12px 14px;
+    border-radius: 12px;
+    font-size: 14px;
+    border: 1px solid;
+    background: #ffffff10;
+}
+
+.alert.success {
+    border-color: #22c55e55;
+    background: #1b3b2440;
+}
+
+.alert.error {
+    border-color: #ef444455;
+    background: #3a1d1d40;
+}
+
+.alert.info {
+    border-color: #3b82f655;
+    background: #1d283b40;
+}
+
+.alert ul {
+    margin: 6px 0 0 18px;
+}
+
+.form {
+    display: grid;
+    gap: 14px;
+}
+
+.grid-2 {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 560px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+.field label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 500;
+}
+
+.input, textarea, select {
+    width: 100%;
+    color: var(--txt);
+    font: inherit;
+    background: #ffffff12;
+    border: 1px solid #ffffff2b;
+    border-radius: 12px;
+    padding: 12px 14px;
+    outline: none;
+    transition: border-color .2s, box-shadow .2s, background .2s;
+}
+
+textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+.input::placeholder, textarea::placeholder {
+    color: #c7cbe280;
+}
+
+.input:focus, textarea:focus, select:focus {
+    border-color: color-mix(in oklab, var(--accent) 70%, white 30%);
+    box-shadow: 0 0 0 4px #7c3aed22;
+    background: #ffffff18;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 6px;
+}
+
+.btn-group {
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-weight: 600;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-size: 14px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    box-shadow: 0 10px 20px #00000040, inset 0 1px 0 #ffffff4a;
+    transition: transform .08s ease, filter .15s ease, box-shadow .2s ease;
+}
+
+.btn.secondary {
+    background: #ffffff15;
+    box-shadow: 0 5px 15px #00000030, inset 0 1px 0 #ffffff20;
+}
+
+.btn:hover {
+    filter: brightness(1.06) saturate(1.05);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.json-viewer {
+    background: #0a0e1a;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 20px;
+    max-height: 400px;
+    overflow: auto;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 13px;
+    color: #e7e9f1;
+    line-height: 1.4;
+}
+
+.json-key {
+    color: #7c3aed;
+}
+
+.json-string {
+    color: #06b6d4;
+}
+
+.json-number {
+    color: #22c55e;
+}
+
+.json-boolean {
+    color: #ef4444;
+}
+
+.json-null {
+    color: #f59e0b;
+}
+
+.view-toggle {
+    position: absolute;
+    top: 28px;
+    right: 28px;
+}
